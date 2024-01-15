@@ -1,4 +1,4 @@
-import app from './src/app.js';
+const app = require('./src/app');
 
 app.listen('3030', () => {
   console.log('API rodando na porta 3030');
