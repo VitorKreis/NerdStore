@@ -12,7 +12,12 @@ class AutorService {
     if (!id) {
       throw new Error('ID necessario para a busca!');
     }
+
     const resultado = await Autor.findByPk(id);
+
+    if (resultado == null) {
+      throw new Error('ID não existe no Banco!');
+    }
 
     return resultado;
   }

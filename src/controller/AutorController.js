@@ -25,6 +25,7 @@ class AutorController {
       if (error.message === 'ID necessario para a busca!') {
         return res.status(400).json(error.message);
       }
+
       return res.status(500).json(error.message);
     }
   };
