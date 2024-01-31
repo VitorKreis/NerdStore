@@ -1,6 +1,7 @@
 import express from 'express';
 
 import autorRouter from './autorRouter.js';
+import livroRouter from './livroRouter.js';
 
 const router = (app) => {
   app.route('/').get((_, res) => {
@@ -10,6 +11,7 @@ const router = (app) => {
   app.use(
     express.json(),
     autorRouter,
+    livroRouter,
   );
 };
 

@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
-import Autor from '../models/Autor.js';
+// import Autor from '../models/Autor.js';
+
+import { Autor } from '../models/index.js';
 
 class AutorService {
   async pegarTodos() {
