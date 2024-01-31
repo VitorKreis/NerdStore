@@ -8,7 +8,26 @@ CREATE TABLE autores (
 );
 
 
-INSERT INTO autores (nome, nacionalidade, idade) 
-VALUES  ("JRR Tolkien", "sul-africano", 81),
-        ("Ursula LeGuin", "estadunidense", 88),
-        ("Machado de Assis", "brasileira", 69);
+INSERT INTO autores (nome, nacionalidade, idade, createdAt, updatedAt) 
+VALUES  ("JRR Tolkien", "sul-africano", 81, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ("Ursula LeGuin", "estadunidense", 88, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ("Machado de Assis", "brasileira", 69, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
+CREATE TABLE livros(
+  id            INTEGER NOT NULL PRIMARY KEY,
+  titulo          TEXT    NOT NULL,
+  paginas       INTEGER NOT NULL,
+  autor_id      INTEGER NOT NULL,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (autor_id) REFERENCES autores (id)
+);
+
+
+
+INSERT INTO livros(titulo, paginas, autor_id)
+VALUES ('Hobbit', 230, 1),
+('Senhor do Aneis | A Socidade do Anel', 400, 1),
+('Memórias Póstumas de Brás Cubas', 150, 3);
+
