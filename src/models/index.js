@@ -4,14 +4,16 @@ import Autor from './Autor.js';
 
 import Livro from './Livro.js';
 
-sequelize.sync();
+await sequelize.sync();
 
 Livro.belongsTo(Autor, {
   foreignKey: 'autor_id',
+  onDelete: 'NO ACTION',
 });
 
 Autor.hasMany(Livro, {
   foreignKey: 'autor_id',
+  onDelete: 'NO ACTION',
 });
 
 export { Autor, Livro };
