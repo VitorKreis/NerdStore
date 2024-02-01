@@ -2,7 +2,7 @@
 import { expect, describe } from '@jest/globals';
 import AutorService from '../../service/AutorService';
 
-describe('Serviços do Autor', () => {
+describe('Autor service', () => {
   const service = new AutorService();
 
   const Autor = {
@@ -10,6 +10,7 @@ describe('Serviços do Autor', () => {
     nacionalidade: 'Americano',
     idade: 40,
   };
+
   test('Retornar todos os autores no banco', async () => {
     const resultado = await service.pegarTodos();
 
