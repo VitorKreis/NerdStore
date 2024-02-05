@@ -22,6 +22,10 @@ Livro.init(
       type: DataTypes.INTEGER,
       allowNull: true,
     },
+    sinopse: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     autor_id: {
       type: DataTypes.INTEGER,
       allowNull: null,
