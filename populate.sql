@@ -27,6 +27,7 @@ CREATE TABLE livros(
 
 
 
+<<<<<<< HEAD
 INSERT INTO livros(titulo, paginas, autor_id, sinopse)
 VALUES ('Hobbit', 230, 1, 
 'Bilbo Bolseiro é um hobbit que leva uma vida confortável e sem ambições. Mas seu contentamento é perturbado quando Gandalf, o mago, e uma companhia de anões batem à sua porta e levam-no para uma expedição'),
@@ -34,4 +35,9 @@ VALUES ('Hobbit', 230, 1,
 ('A mão esquerda da escuridão', 304, 2, 'Enviado em uma missão intergaláctica, Genly Ai, um humano, tem como missão persuadir os governantes do planeta Gethen a se unirem a uma comunidade universal. Entretanto, Genly, mesmo depois de anos de estudo, percebe-se despreparado para a situação que lhe aguardava. Ao entrar em contato com uma cultura complexa, rica, quase medieval e com outra abordagem na relação entre os gêneros, Genly perde o controle da situação.');
 
 
+=======
+INSERT INTO livros(titulo, paginas, autor_id)
+VALUES ('Hobbit', 230, 1),
+('Senhor do Aneis | A Socidade do Anel', 400, 1);
+>>>>>>> main
 

@@ -8,7 +8,7 @@ class AutorController {
     try {
       const autores = await service.pegarTodos();
 
-      return res.status(200).json(autores);
+      return res.status(200).json({ message: 'Todos os autores no banco', content: autores });
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -20,7 +20,7 @@ class AutorController {
     try {
       const autor = await service.pegarAutorPorID(id);
 
-      return res.status(200).json(autor);
+      return res.status(200).json({ message: `Autor com o id ${id}`, content: autor });
     } catch (error) {
       if (error.message === 'ID necessario para a busca!') {
         return res.status(400).json(error.message);
@@ -36,7 +36,7 @@ class AutorController {
     try {
       const autor = await service.criarAutor(body);
 
-      return res.status(201).json(autor);
+      return res.status(201).json({ message: 'Autor criado', content: autor });
     } catch (error) {
       if (error.message === 'corpo da requisicao vazio') {
         return res.status(400).json(error.message);
@@ -50,9 +50,9 @@ class AutorController {
     const { body } = req;
 
     try {
-      const livroAutalizado = await service.autualizarAutor(id, body);
+      const autorAtualizado = await service.autualizarAutor(id, body);
 
-      return res.status(201).json(livroAutalizado);
+      return res.status(201).json({ message: 'Autor Atulizado', content: autorAtualizado });
     } catch (error) {
       if (error.message === 'corpo da requisicao vazio') {
         return res.status(400).json(error.message);
@@ -70,7 +70,7 @@ class AutorController {
     try {
       const autor = await service.excluirAutor(id);
 
-      return res.status(200).json(autor);
+      return res.status(200).json({ message: 'Autor Excluido', content: autor });
     } catch (error) {
       if (error.message === 'ID necessario para a busca!') {
         return res.status(400).json(error.message);

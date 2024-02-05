@@ -6,7 +6,7 @@ class LivroController {
     try {
       const livros = await service.pegarTodos();
 
-      return res.status(200).json(livros);
+      return res.status(200).json({ message: 'Todos os autores no banco', content: livros });
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -17,7 +17,7 @@ class LivroController {
     try {
       const livro = await service.pegarPorID(id);
 
-      return res.status(200).json(livro);
+      return res.status(200).json({ message: `Livro com o id ${id}`, content: livro });
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -28,7 +28,7 @@ class LivroController {
     try {
       const livro = await service.criarLivro(body);
 
-      return res.status(201).json(livro);
+      return res.status(201).json({ message: 'Livro criado com sucesso', content: livro });
     } catch (error) {
       return res.status(500).json(error.message);
     }
