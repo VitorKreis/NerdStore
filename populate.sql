@@ -28,6 +28,5 @@ CREATE TABLE livros(
 
 INSERT INTO livros(titulo, paginas, autor_id)
 VALUES ('Hobbit', 230, 1),
-('Senhor do Aneis | A Socidade do Anel', 400, 1),
-('Memórias Póstumas de Brás Cubas', 150, 3);
+('Senhor do Aneis | A Socidade do Anel', 400, 1);
 

@@ -45,6 +45,11 @@ class AutorService {
     try {
       const resultado = await Autor.update(body, { where: { id } });
 
+      if (resultado) {
+        const autor = await Autor.findByPk(id);
+        return autor;
+      }
+
       return resultado;
     } catch (error) {
       throw new Error(error.message);

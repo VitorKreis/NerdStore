@@ -11,9 +11,8 @@ describe('Livro service', () => {
 
   test('Deve retonar um error de falta de autor', async () => {
     expect(async () => {
-      const error = await service.criarLivro(livro);
-      return error;
-    }).rejects.toThrow('Necessario id de um autor');
+      await service.criarLivro(livro);
+    }).rejects.toThrow('ID do autor necessario');
   });
 
   test('Deve atualizar o livro', async () => {
@@ -30,5 +29,17 @@ describe('Livro service', () => {
         updatedAt: expect.any(String),
       }),
     );
+  });
+
+  test('Deve retornar um erro', () => {
+    const body = {
+      titulo: 'Hobbit',
+      paginas: 576,
+      autor_id: 5,
+    };
+
+    expect(async () => {
+      await service.criarLivro(body);
+    }).rejects.toThrow('ID do autor não existe no Banco!');
   });
 });
