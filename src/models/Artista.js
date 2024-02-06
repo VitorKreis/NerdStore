@@ -26,7 +26,7 @@ Artista.init({
 }, {
   sequelize,
   modelName: 'Artista',
-  tableName: 'autores',
+  tableName: 'artistas',
 });
 
 export default Artista;

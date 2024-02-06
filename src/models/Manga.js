@@ -45,7 +45,7 @@ Manga.init({
 
 }, {
   sequelize,
-  modelName: 'Artistas',
+  modelName: 'Manga',
   tableName: 'mangas',
 });
 
