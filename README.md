@@ -21,9 +21,9 @@ Projeto de API REST de Livraria com sistema de cadastro e manejo de livros, mang
 
 
 ```bash
+  cd NerdStore
   npm install
   npm run dev
-  cd NerdStore
 ```
     
 ### Endpoints
