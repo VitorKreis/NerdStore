@@ -8,10 +8,11 @@ jobs:
     name: Linter
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '20.x'
       - name: Instala as dependencias
         run: npm i
       - name: Roda o linter
