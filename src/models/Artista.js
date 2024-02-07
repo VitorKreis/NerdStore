@@ -18,6 +18,9 @@ Artista.init({
   nacionalidade: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      notNull: { msg: 'Necessario nacionalidade para criaçao!' },
+    },
   },
   idade: {
     type: DataTypes.INTEGER,
