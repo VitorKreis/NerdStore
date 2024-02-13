@@ -17,18 +17,21 @@ Manga.init({
   titulo: {
     type: DataTypes.STRING,
     allowNull: false,
+
   },
   capitulo: {
     type: DataTypes.INTEGER,
     allowNull: false,
+
   },
   sinopse: {
     type: DataTypes.STRING,
     allowNull: false,
+
   },
   autor_id: {
     type: DataTypes.INTEGER,
-    allowNull: null,
+    allowNull: false,
     references: {
       model: Autor,
       key: 'id',
