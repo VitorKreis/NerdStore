@@ -22,6 +22,40 @@ class MangaService {
       ],
     });
 
+    if (resultado === null) {
+      throw new Error('Manga não existe com esse ID');
+    }
+
+    return resultado;
+  }
+
+  async criarManga(body) {
+    if (!Object.keys(body).length) {
+      throw new Error('Necessario corpo da requisiçao!');
+    }
+
+    const resultado = await Manga.create(body);
+
+    return resultado;
+  }
+
+  async atualizarManga(id, body) {
+    if (!id) {
+      throw new Error('ID necessario para atualização!');
+    }
+
+    if (!Object.keys(body).length) {
+      throw new Error('Corpo da requisicao vazio');
+    }
+
+    const resultado = await Manga.update(body, { where: { id } });
+
+    return resultado;
+  }
+
+  async deletarManga(id) {
+    const resultado = await Manga.destroy({ where: { id } });
+
     return resultado;
   }
 }
