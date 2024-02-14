@@ -43,6 +43,8 @@ Neste projeto exite um arquivo para criar e popular as tabelas do banco.
 
 Acesse o SQLite3 com `sqlite3 src\config\DB/database.sqlite`, copia todo o arquivo populate, e cole no prompt do sqlite
 
+
+
 ### Endpoints
 
 A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:3000`:
