@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   test:
-    name: Linter
+    name: Teste
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -15,5 +15,5 @@ jobs:
           node-version: '20.x'
       - name: Instala as dependencias
         run: npm i
-      - name: Roda o linter
-        run: npm run lint
+      - name: Roda os testes
+        run: npm run test
