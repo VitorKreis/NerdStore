@@ -58,6 +58,40 @@ class MangaService {
 
     return resultado;
   }
+
+  async pegarPorArtista_ID(id) {
+    const resultado = await Manga.findAll({
+      where: { artista_id: id },
+      include: [{
+        model: Artista,
+        required: true,
+        attributes: ['id', 'nome'],
+      }],
+    });
+
+    if (resultado.length <= 0) {
+      throw new Error('Artista id nao existe no banco!');
+    }
+
+    return resultado;
+  }
+
+  async buscarPorAutor_ID(id) {
+    const resultado = await Manga.findAll({
+      where: { autor_id: id },
+      include: [{
+        model: Autor,
+        required: true,
+        attributes: ['id', 'nome'],
+      }],
+    });
+
+    if (resultado.length <= 0) {
+      throw new Error('Artista id nao existe no banco!');
+    }
+
+    return resultado;
+  }
 }
 
 export default MangaService;

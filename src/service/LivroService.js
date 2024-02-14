@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import { Livro, Autor } from '../models/index.js';
 
 class LivroService {

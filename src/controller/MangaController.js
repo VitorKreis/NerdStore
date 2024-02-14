@@ -57,6 +57,30 @@ class MangaController {
       return res.status(500).json({ message: error.message });
     }
   };
+
+  static buscarPorArtista_ID = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const manga = await service.pegarPorArtista_ID(id);
+
+      return res.status(200).json({ message: `Segue os mangas com o artista_id ${id}`, content: manga });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  };
+
+  static buscarPorAutor_ID = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const manga = await service.buscarPorAutor_ID(id);
+
+      return res.status(200).json({ message: `Segue os mangas com o autor_id ${id}`, content: manga });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  };
 }
 
 export default MangaController;
