@@ -9,16 +9,6 @@ Projeto de API REST de Livraria com sistema de cadastro e manejo de livros, mang
 
 ## Stack utilizada
 
-* `Node.js` v18.12.0
-* `express` v4.18.1,
-* `sequelize` v6.35.2
-* `sqlite3` v5.1.7
-
-
-
-
-## Stack utilizada
-
 **Back-end:**
 * `Node.js` v18.12.0
 * `express` v4.18.1,
@@ -27,10 +17,6 @@ Projeto de API REST de Livraria com sistema de cadastro e manejo de livros, mang
 
 **Testes:**
 * `Jest` v29.9.0
-
-
-
- 
 
 
 ## Instalação
