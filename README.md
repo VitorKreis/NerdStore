@@ -33,7 +33,7 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:3000`:
 `/autores`
 * `GET /autores`
 * `GET /autores/:id`
-* `GET /autores/:id/livros`
+* `GET /autores/:id`
 * `POST /autores`
 * `PUT /autores/:id`
 * `DELETE /autores/:id`
@@ -45,10 +45,21 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:3000`:
 * `PUT /livros/:id`
 * `DELETE /livros/:id`
 
-
-`/artistas`
+* `/artistas`
 * `GET /artistas`
-* `GET /artista/:id`
+* `GET /artistas/:id`
 * `POST /artistas`
 * `PUT /artistas/:id`
 * `DELETE /artistas/:id`
+
+
+
+
+`/mangas`
+* `GET /mangas`
+* `GET /mangas/:id`
+* `GET /mangas/artista/:id`
+* `GET /mangas/autor/:id`
+* `POST /mangas`
+* `PUT /mangas/:id`
+* `DELETE /mangas/:id`
