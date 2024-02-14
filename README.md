@@ -25,6 +25,9 @@ Projeto de API REST de Livraria com sistema de cadastro e manejo de livros, mang
   npm install
   npm run dev
 ```
+
+##Banco de Dados
+
     
 ### Endpoints
 
@@ -44,15 +47,14 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:3000`:
 * `POST /livros`
 * `PUT /livros/:id`
 * `DELETE /livros/:id`
+  
 
-* `/artistas`
+`/artistas`
 * `GET /artistas`
 * `GET /artistas/:id`
 * `POST /artistas`
 * `PUT /artistas/:id`
 * `DELETE /artistas/:id`
-
-
 
 
 `/mangas`
