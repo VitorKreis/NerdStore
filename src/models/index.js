@@ -1,8 +1,6 @@
-/* eslint-disable import/no-cycle */
 import sequelize from '../config/DB/Config.js';
 import Artista from './Artista.js';
 import Autor from './Autor.js';
-
 import Livro from './Livro.js';
 import Manga from './Manga.js';
 

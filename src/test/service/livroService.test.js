@@ -7,6 +7,7 @@ describe('Livro service', () => {
   const livro = {
     titulo: 'Senhor dos aneis: O retorno do rei',
     paginas: 528,
+    sinopse: 'O rei volta',
   };
 
   test('Deve retonar um error de falta de autor', async () => {
@@ -36,6 +37,7 @@ describe('Livro service', () => {
       titulo: 'Hobbit',
       paginas: 576,
       autor_id: 5,
+      sinopse: 'hobbit pequeno',
     };
 
     expect(async () => {
