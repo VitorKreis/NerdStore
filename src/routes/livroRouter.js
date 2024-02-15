@@ -6,6 +6,7 @@ const router = Router();
 
 router.get('/livros', LivroController.pegarTodos);
 router.get('/livros/:id', LivroController.pegarPorID);
+router.get('/livros/autor/:id', LivroController.pegarPorAutorID)
 
 router.post('/livros', LivroController.criarLivro);
 router.put('/livros/:id', LivroController.atualizarLivro);

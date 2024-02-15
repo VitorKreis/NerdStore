@@ -63,6 +63,21 @@ class LivroService {
 
     return resultado;
   }
+
+  async pegarLivroPorAutorID(id){
+    if (!id) {
+        throw new Error('ID do autor necessario');
+      }
+
+      const resultado = await Livro.findAll({where: {autor_id : id}})
+
+      if(resultado === null){
+        throw new Error('Não existe esse autor!');
+      }
+
+      return resultado;
+
+  }
 }
 
 export default LivroService;

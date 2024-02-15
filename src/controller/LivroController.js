@@ -1,3 +1,4 @@
+import serveStatic from 'serve-static';
 import LivroService from '../service/LivroService.js';
 
 const service = new LivroService();
@@ -58,6 +59,19 @@ class LivroController {
       return res.status(500).json(error.message);
     }
   };
+
+
+  static pegarPorAutorID = async (req, res) => {
+    const {id} = req.params;
+    
+    try {
+        const livro = await service.pegarLivroPorAutorID(id);
+
+        return res.status(200).json({ message: `Segue os livros com o autor_id ${id}`, content: livro });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 export default LivroController;
