@@ -8,6 +8,10 @@ class ArtistaService {
   }
 
   async pegarPorID(id) {
+
+    if(!id){
+        throw new Error('Necessario id para busca!');
+    }
     const resultado = await Artista.findByPk(id);
 
     if (resultado == null) {
@@ -17,7 +21,7 @@ class ArtistaService {
     return resultado;
   }
 
-  async criarArtsta(body) {
+  async criarArtista(body) {
     if (!Object.keys(body).length) {
       throw new Error('Necessario corpo da requisiçao!');
     }
