@@ -14,6 +14,9 @@ Artista.init({
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+        notNull: { msg: 'Necessario nome para criaçao!' },
+      },
   },
   nacionalidade: {
     type: DataTypes.STRING,
@@ -24,7 +27,11 @@ Artista.init({
   },
   idade: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
+    validate: {
+        notNull: { msg: 'Necessario idade para criaçao!' },
+        isInt: { msg: 'Necesario ser um numero para salvar' },
+      },
   },
 }, {
   sequelize,
