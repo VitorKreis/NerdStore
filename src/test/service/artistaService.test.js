@@ -4,7 +4,6 @@ import ArtistaService from "../../service/ArtistaService.js"
 describe("Artista service", () => {
     const service = new ArtistaService()
 
-    
 
     test('Deve retornar um erro', () => {
         expect(async () =>{

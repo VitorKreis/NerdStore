@@ -52,8 +52,6 @@ class ArtistaService {
         throw new Error('Id não encontrado!');
     }
 
-    console.log(resultado)
-
     return resultado;
   }
 }
