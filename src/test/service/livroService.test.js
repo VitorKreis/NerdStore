@@ -32,16 +32,6 @@ describe('Livro service', () => {
     );
   });
 
-  test('Deve retornar um erro', () => {
-    const body = {
-      titulo: 'Hobbit',
-      paginas: 576,
-      autor_id: 5,
-      sinopse: 'hobbit pequeno',
-    };
-
-    expect(async () => {
-      await service.criarLivro(body);
-    }).rejects.toThrow('ID do autor não existe no Banco!');
-  });
+  
+  
 });

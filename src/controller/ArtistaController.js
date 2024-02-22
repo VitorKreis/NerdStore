@@ -26,7 +26,7 @@ class ArtistaController {
   static criarArtista = async (req, res) => {
     const { body } = req;
     try {
-      const artista = await service.criarArtsta(body);
+      const artista = await service.criarArtista(body);
 
       return res.status(202).json({ message: 'Artista criado', content: artista });
     } catch (error) {

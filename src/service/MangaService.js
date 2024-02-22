@@ -8,6 +8,11 @@ class MangaService {
   }
 
   async pegarPorID(id) {
+
+    if(!id){
+        throw new Error("Necessario id para busca")
+    }
+
     const resultado = await Manga.findByPk(id, {
       include: [{
         model: Autor,
@@ -34,6 +39,15 @@ class MangaService {
       throw new Error('Necessario corpo da requisiçao!');
     }
 
+
+    if(!body.autor_id){
+        throw new Error('Autor_id necessario para criar manga!');
+    }
+
+    if(!body.artista_id){
+        throw new Error('Artista_id necessario para criar manga!');
+    }
+ 
     const resultado = await Manga.create(body);
 
     return resultado;
@@ -69,8 +83,10 @@ class MangaService {
       }],
     });
 
+    console.log(resultado)
+
     if (resultado.length <= 0) {
-      throw new Error('Artista id nao existe no banco!');
+      throw new Error('Artista id nao vinculado a um manga existente no banco!');
     }
 
     return resultado;
@@ -87,7 +103,7 @@ class MangaService {
     });
 
     if (resultado.length <= 0) {
-      throw new Error('Artista id nao existe no banco!');
+      throw new Error('Artista id no vinculado a um manga existente no banco!');
     }
 
     return resultado;
