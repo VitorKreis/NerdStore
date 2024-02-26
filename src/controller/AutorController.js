@@ -38,7 +38,11 @@ class AutorController {
 
       return res.status(201).json({ message: 'Autor criado', content: autor });
     } catch (error) {
-      if (error.message === 'corpo da requisicao vazio') {
+      if (error.message === 'Necessario corpo da requisiçao!') {
+        return res.status(400).json(error.message);
+      }
+      if(error.message === "notNull Violation: Necessario nome para criaçao!"){
+        error.message = 'Necessario nome para criaçao!'
         return res.status(400).json(error.message);
       }
       return res.status(500).json(error.message);

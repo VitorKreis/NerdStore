@@ -15,14 +15,23 @@ Autor.init({
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+        notNull: {msg : 'Necessario nome para criaçao!'}
+    } 
   },
   nacionalidade: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+        notNull: {msg : 'Necessario nacionalidade para criaçao!'}
+    } 
   },
   idade: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
+    validate: {
+        notNull: {msg : 'Necessario idade para criaçao!'}
+    } 
   },
 }, {
   sequelize,

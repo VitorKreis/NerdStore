@@ -18,7 +18,7 @@ class AutorService {
     const resultado = await Autor.findByPk(id);
 
     if (resultado == null) {
-      throw new Error('ID não existe no Banco!');
+      throw new Error("ID não existe no Banco!");
     }
 
     return resultado;
@@ -30,6 +30,10 @@ class AutorService {
     }
 
     const resultado = await Autor.create(body);
+
+    if(resultado.message){
+        throw new Error(resultado.message);
+    }
 
     return resultado;
   }
