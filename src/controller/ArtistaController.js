@@ -19,6 +19,9 @@ class ArtistaController {
 
       return res.status(200).json({ message: `Artista com id: ${id}`, content: artista });
     } catch (error) {
+        if(error.message === 'Id não encontrado!'){
+            return res.status(400).json({ message: error.message });
+        }
       return res.status(500).json({ message: error.message });
     }
   };
@@ -28,8 +31,11 @@ class ArtistaController {
     try {
       const artista = await service.criarArtista(body);
 
-      return res.status(202).json({ message: 'Artista criado', content: artista });
+      return res.status(201).json({ message: 'Artista criado', content: artista });
     } catch (error) {
+        if(error.message === 'Necessario corpo da requisiçao!'){
+            return res.status(400).json({ message: error.message });
+        }
       return res.status(500).json({ message: error.message });
     }
   };
@@ -45,6 +51,9 @@ class ArtistaController {
 
       return res.status(202).json({ message: 'Artista atualizado', content: artista });
     } catch (error) {
+        if(error.message === 'Necessario corpo da requisiçao!'){
+            return res.status(400).json({ message: error.message });
+        }
       return res.status(500).json({ message: error.message });
     }
   };

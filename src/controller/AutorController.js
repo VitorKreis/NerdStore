@@ -10,7 +10,7 @@ class AutorController {
 
       return res.status(200).json({ message: 'Todos os autores no banco', content: autores });
     } catch (error) {
-      return res.status(500).json(error.message);
+      return res.status(500).json({ message: error.message });
     }
   };
 
@@ -23,10 +23,10 @@ class AutorController {
       return res.status(200).json({ message: `Autor com o id ${id}`, content: autor });
     } catch (error) {
       if (error.message === 'ID necessario para a busca!') {
-        return res.status(400).json(error.message);
+        return res.status(400).json({ message: error.message });
       }
 
-      return res.status(500).json(error.message);
+      return res.status(500).json({ message: error.message });
     }
   };
 
@@ -39,13 +39,10 @@ class AutorController {
       return res.status(201).json({ message: 'Autor criado', content: autor });
     } catch (error) {
       if (error.message === 'Necessario corpo da requisiçao!') {
-        return res.status(400).json(error.message);
+        return res.status(400).json({ message: error.message });
       }
-      if(error.message === "notNull Violation: Necessario nome para criaçao!"){
-        error.message = 'Necessario nome para criaçao!'
-        return res.status(400).json(error.message);
-      }
-      return res.status(500).json(error.message);
+      
+      return res.status(500).json({ message: error.message });
     }
   };
 
@@ -59,12 +56,12 @@ class AutorController {
       return res.status(201).json({ message: 'Autor Atulizado', content: autorAtualizado });
     } catch (error) {
       if (error.message === 'corpo da requisicao vazio') {
-        return res.status(400).json(error.message);
+        return res.status(400).json({ message: error.message });
       } if (error.message === 'ID necessario para a busca!') {
-        return res.status(400).json(error.message);
+        return res.status(400).json({ message: error.message });
       }
 
-      return res.status(500).json(error.message);
+      return res.status(500).json({ message: error.message });
     }
   };
 
@@ -77,9 +74,9 @@ class AutorController {
       return res.status(200).json({ message: 'Autor Excluido', content: autor });
     } catch (error) {
       if (error.message === 'ID necessario para a busca!') {
-        return res.status(400).json(error.message);
+        return res.status(400).json({ message: error.message });
       }
-      return res.status(500).json(error.message);
+      return res.status(500).json({ message: error.message });
     }
   };
 }
