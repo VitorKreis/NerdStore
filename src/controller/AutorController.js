@@ -71,6 +71,7 @@ class AutorController {
     try {
       const autor = await service.excluirAutor(id);
 
+
       return res.status(200).json({ message: 'Autor Excluido', content: autor });
     } catch (error) {
       if (error.message === 'ID necessario para a busca!') {

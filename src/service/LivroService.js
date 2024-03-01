@@ -27,6 +27,11 @@ class LivroService {
   }
 
   async criarLivro(body) {
+    if (!Object.keys(body).length) {
+        throw new Error('Corpo da requisicao vazio');
+    }
+      
+
     if (!body.autor_id) {
       throw new Error('ID do autor necessario');
     }
@@ -71,7 +76,8 @@ class LivroService {
 
       const resultado = await Livro.findAll({where: {autor_id : id}})
 
-      if(resultado === null){
+
+      if(resultado.length === 0){
         throw new Error('Não existe esse autor!');
       }
 

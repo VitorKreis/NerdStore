@@ -17,14 +17,23 @@ Livro.init(
     titulo: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notNull : {msg: "Necessario titulo para criaçao"}
+      }
     },
     paginas: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
+      validate: {
+        notNull : {msg: "Necessario numero de paginas para criaçao"}
+      }
     },
     sinopse: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        notNull : {msg: "Necessario sinopse para criaçao"}
+      }
     },
     autor_id: {
       type: DataTypes.INTEGER,

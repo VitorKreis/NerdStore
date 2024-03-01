@@ -67,6 +67,11 @@ class AutorService {
 
     const resultado = await Autor.destroy({ where: { id } });
 
+
+    if (resultado === 0){
+        throw new Error("Id não encontrado!")
+    }
+
     return resultado;
   }
 }

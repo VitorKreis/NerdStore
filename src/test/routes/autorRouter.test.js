@@ -144,6 +144,15 @@ describe("DELETE em '/autores' ", () => {
         .expect(200)
 
     expect(response.body.content).toBe(1)
-
     })
+
+    test("Deve retornar um erro por id invalido", async () => {
+        const response = await request(app)
+        .delete(`/autores/59780`)
+        .set('Accept', 'application/json')
+        .expect('content-type', /json/)
+        .expect(500)
+    
+        expect(response.body.message).toBe("Id não encontrado!")
+       })
 })
