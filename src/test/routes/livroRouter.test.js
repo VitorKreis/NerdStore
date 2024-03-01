@@ -14,7 +14,7 @@ afterEach(() =>{ //Fecha essa rota quando terminar
 })
 
 
-let autor_id;
+let livro_id;
 
 describe("GET em '/livros' ", () => {
     test("Deve retornar todos os livros e seus autores", async () =>{
@@ -134,4 +134,57 @@ describe("POST em '/livros' ", () => {
         expect(response.body).toBe("notNull Violation: Necessario numero de paginas para criaçao")
         
     })
-}) 
+
+
+    test("Deve criar um novo livro", async() => {
+        const body = {
+            titulo: "O Senhor dos Anéis: As duas torres",
+            paginas: 576,
+            sinopse : "Após a captura de Merry e Pippy pelos orcs, a Sociedade do Anel é dissolvida. Frodo e Sam seguem sua jornada rumo à Montanha da Perdição para destruir o anel e descobrem que estão sendo perseguidos pelo misterioso Gollum. Enquanto isso, Aragorn, o elfo e arqueiro Legolas e o anão Gimli partem para resgatar os hobbits sequestrados e chegam ao reino de Rohan, onde o rei Theoden foi vítima de uma maldição mortal de Saruman",
+            autor_id: 1
+        }
+        const response = await request(app)
+        .post('/livros')
+        .set('Accept', 'application/json')
+        .send(body)
+        .expect('content-type', /json/)
+        .expect(201)
+
+
+        expect(response.body.content).toEqual(
+            expect.objectContaining({
+                id: expect.any(Number),
+                ...body,
+                createdAt: expect.any(String),
+                updatedAt: expect.any(String),
+            })
+        )
+        livro_id = response.body.content.id
+    })
+})
+
+
+describe("PUT em '/livros' ", () => {
+    test("Deve retornar o livro atualizado", async() => {
+        const response = await request(app)
+        .put(`/livros/${livro_id}`)
+        .send({titulo: "Hobbit"})
+        .expect('content-type', /json/)
+        .expect(201)
+
+
+        expect(response.body.titulo).toBe("Hobbit")
+    })
+})
+
+
+
+describe("DELETE em '/livros' ", () => {
+    test("Deve excluir um livro", async() => {
+        const response = await request(app)
+        .delete(`/livros/${livro_id}`)
+        .set('Accept', 'application/json')
+        .expect('content-type', /json/)
+        .expect(200)
+    })
+})
