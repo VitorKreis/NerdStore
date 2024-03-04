@@ -168,12 +168,40 @@ describe("PUT em '/livros' ", () => {
     test("Deve retornar o livro atualizado", async() => {
         const response = await request(app)
         .put(`/livros/${livro_id}`)
+        .set('Accept', 'application/json')
         .send({titulo: "Hobbit"})
         .expect('content-type', /json/)
         .expect(201)
 
 
-        expect(response.body.titulo).toBe("Hobbit")
+        expect(response.body.content.titulo).toBe("Hobbit")
+    })
+
+    test("Dever retonar um erro por falta de informacoes", async() => {
+        const response = await request(app)
+        .put('/livros/2')
+        .set('Accept', 'application/json')
+        .send()
+        .expect('content-type', /json/)
+        .expect(500)
+
+        expect(response.body.message).toBe('Corpo da requisicao vazio')
+    
+    })
+
+
+    test("Deve retornar erro por id invalido", async() => { 
+        const response = await request(app)
+        .put('/livros/2405446')
+        .set('Accept', 'application/json')
+        .send({titulo: 'Teste'})
+        .expect('content-type', /json/)
+        .expect(500)
+
+
+
+        expect(response.body.message).toBe("ID não existe no Banco!")
+
     })
 })
 

@@ -52,11 +52,15 @@ class LivroService {
       throw new Error('Corpo da requisicao vazio');
     }
     const resultado = await Livro.update(body, { where: { id } });
-    if (resultado !== null) {
-      const livro = await Livro.findByPk(id);
-      return livro;
-    }
-    return resultado;
+
+
+    if (resultado[0] === 0) {
+        throw new Error('ID não existe no Banco!');
+      }
+
+
+      return resultado;
+
   }
 
   async excluirLivro(id) {

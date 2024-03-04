@@ -42,9 +42,11 @@ class LivroController {
     try {
       const livroAtualizado = await service.atualizarLivro(id, body);
 
-      return res.status(201).json(livroAtualizado);
+      const livro = await service.pegarPorID(id)
+
+      return res.status(201).json({ message: 'Livro atualizado com sucesso', content: livro });
     } catch (error) {
-      return res.status(500).json(error.message);
+      return res.status(500).json({message: error.message});
     }
   };
 
@@ -54,9 +56,9 @@ class LivroController {
     try {
       const livroExcluido = await service.excluirLivro(id);
 
-      return res.status(200).json(livroExcluido);
+      return res.status(200).json({ message: 'Livro excluido com sucesso'});
     } catch (error) {
-      return res.status(500).json(error.message);
+      return res.status(500).json({ message: error.message});
     }
   };
 
