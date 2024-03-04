@@ -70,6 +70,11 @@ class MangaService {
   async deletarManga(id) {
     const resultado = await Manga.destroy({ where: { id } });
 
+
+    if (resultado === 0){
+        throw new Error("Id não encontrado!")
+    }
+
     return resultado;
   }
 
@@ -103,7 +108,7 @@ class MangaService {
     });
 
     if (resultado.length <= 0) {
-      throw new Error('Artista id no vinculado a um manga existente no banco!');
+      throw new Error('Autor id nao vinculado a um manga existente no banco!');
     }
 
     return resultado;

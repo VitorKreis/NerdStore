@@ -17,17 +17,24 @@ Manga.init({
   titulo: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+        notNull : {msg: "Necessario titulo para criaçao"}
+      }
 
   },
   capitulo: {
     type: DataTypes.INTEGER,
     allowNull: false,
-
+    validate: {
+        notNull : {msg: "Necessario capitulos para criaçao"}
+      }
   },
   sinopse: {
     type: DataTypes.STRING,
     allowNull: false,
-
+    validate: {
+        notNull : {msg: "Necessario sinopse para criaçao"}
+      }
   },
   autor_id: {
     type: DataTypes.INTEGER,
