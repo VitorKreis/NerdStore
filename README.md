@@ -72,4 +72,14 @@ A API expõe os seguintes *endpoints* a partir da *base URL* `localhost:3000`:
 * `PUT /artistas/:id`
 * `DELETE /artistas/:id`
 
+`/mangas`
+* `GET /mangas`
+* `GET /mangas/:id`
+* `GET /mangas/artista/:id`
+* `GET /mangas/autor/:id`
+* `POST /mangas`
+* `PUT /mangas/:id`
+* `DELETE /mangas/:id`
+
+
 
