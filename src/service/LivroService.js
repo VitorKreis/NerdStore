@@ -27,6 +27,7 @@ class LivroService {
   }
 
   async criarLivro(body) {
+
     if (!Object.keys(body).length) {
         throw new Error('Corpo da requisicao vazio');
     }
@@ -48,6 +49,8 @@ class LivroService {
   }
 
   async atualizarLivro(id, body) {
+
+
     if (!Object.keys(body).length) {
       throw new Error('Corpo da requisicao vazio');
     }

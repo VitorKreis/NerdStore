@@ -4,7 +4,7 @@ import app from "../../app"
 
 let server;
 beforeEach(()=> { //Inicia uma routa para os testes
-    const port = 3030
+    const port = 3040
     server = app.listen(port)
 })
 
@@ -167,6 +167,7 @@ describe("POST em '/mangas' ", () => {
     })
 
     test('Deve retornar um erro por falta do id do artista', async () => {
+
         const response = await request(app)
         .post('/mangas')
         .set('Accept', 'application/json')
@@ -186,6 +187,7 @@ describe("POST em '/mangas' ", () => {
 
 
     test('Deve retornar um erro por falta de alguma informacao', async () => {
+
         const response = await request(app)
         .post('/mangas')
         .set('Accept', 'application/json')
@@ -199,25 +201,51 @@ describe("POST em '/mangas' ", () => {
         .expect('content-type', /json/)
         .expect(500)
 
-        console.log(response.body.message)
-
-
 
         expect(response.body.message).toBe("notNull Violation: Necessario sinopse para criaçao")
     })
 })
 
 
+describe("PUT em '/mangas'", () => {
+    
+    test("Deve retornar o manga atualizado", async () => {
+
+        const response = await request(app)
+        .put(`/mangas/4`)
+        .set('Accept', 'application/json')
+        .send({titulo: "Teste"})
+        .expect('content-type', /json/)
+        .expect(201)
+
+        expect(response.body.content.titulo).toBe("Teste")
+        
+    })
+
+    test("Deve retornar um erro por id inexistente", async() => {
+        const response = await request(app)
+        .put("/mangas/3746")
+        .set('Accept', 'application/json')
+        .send({titulo: 'teste'})
+        .expect('content-type', /json/)
+        .expect(500)
+
+        expect(response.body.message).toBe("Manga não existe com esse ID")
+    })
+
+})
+
+
 
 
 describe("DELETE em '/mangas' ", () => {
+    
     test("Deve excluir um manga", async() => {
         const response = await request(app)
         .delete(`/mangas/${mangaID}`)
         .set('Accept', 'application/json')
         .expect('content-type', /json/)
         .expect(202)
-
 
         expect(response.body.message).toBe("Manga removido")
     })
@@ -230,10 +258,8 @@ describe("DELETE em '/mangas' ", () => {
         .expect('content-type', /json/)
         .expect(500)
 
-
         expect(response.body.message).toBe("Id não encontrado!")
     }) 
-
     
 })
 
