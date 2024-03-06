@@ -13,12 +13,15 @@ Account.init({
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
+        validate: {
+            isEmail: {msg: "Necessario ser um email, para salvar"},
+        }
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
     }
 }, {
     sequelize,
