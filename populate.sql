@@ -44,6 +44,15 @@ CREATE TABLE mangas(
 );
 
 
+CREATE TABLE account(
+    id INTEGER NOT NULL PRIMARY KEY,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
 
 INSERT INTO autores (nome, nacionalidade, idade) 
 VALUES  ("JRR Tolkien", "sul-africano", 81),
